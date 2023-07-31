@@ -21,7 +21,7 @@ function getAllUserController(req, res) {
             return res.json(users);
         }
         catch (error) {
-            return res.status(500).json({ error: 'Error retrieving users' });
+            return res.status(500).json({ error: 'Error al recuperar el  usuario' });
         }
     });
 }

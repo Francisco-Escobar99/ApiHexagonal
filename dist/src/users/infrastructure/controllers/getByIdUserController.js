@@ -25,7 +25,7 @@ function getByIdUserController(req, res) {
             return res.json(user);
         }
         catch (error) {
-            return res.status(500).json({ error: 'Error retrieving user' });
+            return res.status(500).json({ error: 'Error al recuperar el usuario' });
         }
     });
 }

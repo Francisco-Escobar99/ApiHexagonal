@@ -10,14 +10,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getConnection = void 0;
-// mysqlConnection.ts
 const promise_1 = require("mysql2/promise");
 const getConnection = () => __awaiter(void 0, void 0, void 0, function* () {
-    return yield (0, promise_1.createConnection)({
-        host: '54.163.119.51',
-        user: 'franciscoescobar',
-        password: '1234',
-        database: 'farmacia'
-    });
+    try {
+        const connection = yield (0, promise_1.createConnection)({
+            host: '54.163.119.51',
+            user: 'franciscoescobar',
+            password: '1234',
+            database: 'farmacia'
+        });
+        console.log('Conexión a la base de datos establecida correctamente.');
+        return connection;
+    }
+    catch (error) {
+        console.error('Error al conectar a la base de datos:', error.message);
+        throw error;
+    }
 });
 exports.getConnection = getConnection;
+// Llamamos a la función para establecer la conexión
+(0, exports.getConnection)();
